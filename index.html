@@ -2,11 +2,43 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Portfolio espacial</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#05070f" />
+    <title>Sistema solar de skills</title>
+    <meta name="description" content="Explora mis skills y proyectos en un sistema solar interactivo: cada planeta es una categoría y cada luna una skill." />
   </head>
   <body>
-    <div id="app">Fase 0: estructura lista.</div>
+    <!-- Escena 3D -->
+    <div id="stage" role="img" aria-label="Sistema solar interactivo de skills. Usa la barra de planetas para navegar con teclado."></div>
+
+    <!-- Barra de planetas (accesible con teclado y táctil) -->
+    <header class="topbar">
+      <h1 class="brand">Sistema solar <span>de skills</span></h1>
+      <nav id="planet-nav" aria-label="Planetas"></nav>
+    </header>
+
+    <button id="back" class="btn back" type="button" hidden>← Volver al sistema</button>
+    <p id="hint" class="hint">Arrastra para rotar · rueda o pellizco para zoom · toca un planeta</p>
+
+    <div id="tooltip" role="tooltip" hidden></div>
+
+    <!-- Panel lateral (bottom sheet en pantallas pequeñas) -->
+    <aside id="panel" aria-hidden="true" inert>
+      <button id="panel-close" class="icon-btn" type="button" aria-label="Cerrar panel">×</button>
+      <div id="panel-body"></div>
+    </aside>
+
+    <!-- Carga -->
+    <div id="loader" role="status" aria-live="polite">
+      <div class="spinner" aria-hidden="true"></div>
+      <p>Cargando sistema solar…</p>
+    </div>
+
+    <!-- Alternativa sin WebGL -->
+    <main id="fallback" hidden></main>
+
+    <noscript><p class="noscript">Esta página necesita JavaScript para mostrar la simulación.</p></noscript>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
